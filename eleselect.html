@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="first" style="width: 200px; height: 200px; border: 1px solid black; float: left ;" onmouseover="javascirpt:void(0)">
+    </div>
+    <div id="second" style="width: 200px; height: 200px; border: 1px solid black;float: left;">
+    </div>
+    <div id="third" style="width: 200px; height: 200px; border: 1px solid black;float: left;">
+    </div>
+</body>
+<script>
+     var dd=document.querySelectorAll("div");
+     console.log(dd[0])
+    //   dd[0].onmouseover(function(){
+    //       var i =dd.index();
+    //       console.log(i)
+    //   })
+     dd[0].style.width="400px";   //set a cssstyle  remain original style
+    dd[1].style.height=500+"px";   //设置行内样式
+    console.log(dd[0].style.height);  //获取行内样式  无法获取内嵌样式
+     console.log(dd[0].getAttribute("style"));
+     document.querySelector("#second").setAttribute("name","son");
+     document.querySelector("#second").removeAttribute("name");
+
+     document.querySelector("#second").setAttribute("nb","znb");   //自定义属性
+    
+     var dd1=document.querySelector("#second");
+     dd1.style.cssText="width:300px; height:300px; border: 1px solid black;float: left; "; //set totally new cssstyles 
+     console.log(getComputedStyle(dd1)["height"])    //get css   getComputedStyle 获取内嵌样式   也可以用于外部样式获取
+
+     console.log(getComputedStyle(dd1,null).width)   //null是伪元素，可以不写
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 内建对象
+         * 宿主对象
+         * 自定义对象
+         * 
+         * 数组（Array）
+         *   数组也是一个对象
+         *   它和普通对象功能相似也是用来存储一些值
+         *    数组使用数字作为索引*/
+
+         var arr = new Array(1,2,3);   //new方式创建数组
+         var arr1=new Array(10); //表示创建一个长度为10的数组
+         console.log(typeof arr); //返回object
+
+         arr=[1,2,3]   //数组字面量创建数组
+         console.log(arr[3]);   //读取不存在的索引返回undefined
+
+         arr[5]=4
+         console.log(arr[4])   //undefined
+
+         console.log(arr.length)   //.length获取数组长度 实际只有四个元素，但返回6
+         console.log(arr)  
+         arr.length=10   //还可以设置数组长度
+
+
+    </script>
+</body>
+</html>

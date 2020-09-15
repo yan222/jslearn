@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsfunction</title>
+    <script>
+     //   var fun = new Function("console.log('第一种函数方式');")  //很少使用这种方式
+        var exam=function(){      //anonymous funtion , treated as variable  when use it , just like normal function ,use variable name.
+            console.log("dddd");
+        }
+        function exam2(){
+            console.log("ddd");   //两种函数形式
+        }
+
+        (function(){                 //anonymous function   函数自执行
+            console.log("自执行函数1");  
+        })
+
+        (function(){
+            console.log("自执行函数2");   //这个优先执行
+        }())
+
+      //  (function(){ /*code*/}())  //自执行函数
+
+        //解析器不会解析参数类型与数量  多余的不会识别 
+        //如果实参数量小于形参数量，则对应实参为undefined
+        function exa(a,b,v,c,x){
+            console.log(arguments);    //返回参数集合
+        }
+        exa(1,2,3,4,5);
+
+        //传递的参数可以是任意类型，包括函数
+        function say(){
+            alert("immortal");
+        }
+        function dd(say){
+            alert(say());   //弹出一个alert后，下一个弹出undefined，因为say（）函数无返回值
+        }
+        dd(say);
+
+        function f1(){
+            function f2(){
+                alert("f2");
+            }
+            return f2;    //函数返回值可以是任意类型
+        }
+        ss=f1();    //此时ss相当于f2
+        ss();
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

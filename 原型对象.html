@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        prototype原型对象
+        创建的每一个函数，解析器都会向函数中添加一个属性prototype
+        这个属性对应着一个对象，这个对象就是我们所谓的原型对象，
+        如果函数作为普通函数调用prototype没有任何作用
+        当函数以构造函数的形式调用时，它所创建的对象都会有一个隐含的属性
+        指向该构造函数的原型对象，我们可以通过__proto__来访问该属性
+        原型对象就相当于一个公共区域，所有同一个类的实例都可以访问到这个原型对象，
+            可以将对象的公共部分，添加到原型对象
+            
+        访问一个对象的属性时，如果自身没有该属性会到原型对象中去找
+        
+        创建构造函数时，可以将这些对象共有的属性和方法，添加到原型中去，这样不会为每一个
+        对象重复创建（节省内存），也不会影响全局作用域*/
+        function Class(){
+
+        }
+        Class.prototype.name="yiyi"   //在该类的原型对象中定义属性name，该类不存在该属性。
+        Class.prototype.say=function (){ //在原型对象中添加方法
+            alert("hello");
+        }
+        var mc=new Class();
+
+        console.log(Class.prototype)   //构造函数访问时直接用prototype
+        console.log(mc.name)    //输出的是原型对象中的name属性
+      //  mc.name="22"
+      //  console.log(mc.name)    //输出的是该对象本身的name，不再去原型对象寻找
+        console.log(Class.prototype== mc.__proto__)  //返回true,对象实例的原型对象跟构造函数的原型对象一样
+
+        //使用in检查对象中是否含有某个属性时，如果对象中没有，会到原型中查找
+        console.log("name" in mc);  //返回true
+        //可以使用对象的hasOwnProperty（）方法来检查对象自身是否含有该属性
+        console.log(mc.hasOwnProperty("name"));  //返回false
+
+        //原型对象也是对象，所以也有原型
+            //使用一个对象的属性或方法是，会先在自身中寻找，然后到原型对象
+            //再到原型的原型中寻找,直至找到Object对象的原型,
+            //Object对象的原型没有原型，输出时，会输出null，依旧没有找到，则返回undefined
+
+
+    console.log(mc.__proto__.__proto__);   //原型链，object的原型对象
+    console.log(mc.__proto__);//对象的原型对象
+    console.log(mc)   //对象
+    
+   </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //   基本数据类型 number Boolean string undefined null  引用数据类型object
+        //   js的变量都是存储在栈内存中：
+        //         基本数据类型的值直接在栈内存储存  值与值之间独立存在，改变不会影响其他值
+                
+        //         对象的值是保存在堆内存中的，每创建一个新对象，开辟一个空间。
+        //         变量保存的是内存地址（对象的引用）  两个对象指向同一个地址，改变一个对象的内容，另一个对应改变
+
+        typeof(1);          //number
+        typeof("ddd");      //string
+        typeof(true);         //boolean
+        typeof(Object);      //function
+        var oo=new Object();   //object
+        console.log(typeof(null));  //object
+        var a= null;
+        console.log(typeof(a));//object  对null用typeof，返回object  
+    </script>
+</body>
+</html>

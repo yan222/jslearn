@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* 全局 */
+*{margin: 0;padding: 0;}
+ul,li{list-style: none;}
+body{font-family: "-apple-system","BlinkMacSystemFont","Roboto","Helvetica Neue","MIcrosoft YaHei",sans-serif !important; 
+background: #f8f8f8;}
+a{text-decoration: none;color: #666;}
+a:hover{color: #fe8c00;}
+
+
+/*top*/
+.top{width: 1190px;margin: 0 auto;height: 40px; line-height: 40px;    border:1px solid red;}
+.top .left{float: left;}
+.top .right{float: right;}
+.top .right ul li{float:left;font-size: 12px;padding: 0 14px;}
+.top .right ul .mymeituan{position: relative;}
+.top .right ul .mymeituan:hover{background: #fff;border: 1px solid #ddd;padding: 0 13px;margin-top: -1px;}
+.top .right ul .mymeituan .show{position: absolute;left:0;top:39px;background: #fff;display: none;}
+.top .right ul .mymeituan:hover .show{border:1px solid #ddd; border-top:none;display: block;}
+.top .right ul .mymeituan .show .item{width: 78px;text-align: center;}
+
+
+
+/*header*/
+.header{background: #fff;}
+.header .inner{width: 1190px;margin: 0 auto; height: 157px;  border:1px solid blue;}
+
+/*footer*/
+
+/*index首页*/
+
+.main{width: 1190px;margin: 0 auto;  height: 2000px;border:1px solid green;}
+.main .banner{height: 427px;  border:1px solid deeppink;}
+.main .banner .nav{width: 230px;height: 427px; background: #999999;float: left;}
+.main .banner .banner-box{float: left;margin-left: 6px;width: 710px;height: 100%;border:1px solid red; }
+.main .banner .user{width: 230px;height: 427px;background: #FFAA71;float: left;margin-left: 10px;}
+
+.main .banner .banner_left{width: 550px;}
+.main .banner .banner_left .banner-img{position: relative; width: 550px;height: 240px;border:1px solid blue;}
+.main .banner .banner_left .banner-img img{width: 550px;height: 240px;}
+.main .banner .banner_left .banner-img .left{position: absolute;left:0;top:49%; background:rgba(255,78,36,.5); width: 50px;height: 30px;text-align: center;line-height: 30px;color: #fff;cursor: pointer;}
+.main .banner .banner_left .banner-img .right{position: absolute;right:0;top:49%; background:rgba(255,78,36,.5); width: 50px;height: 30px;text-align: center;line-height: 30px;color: #fff;cursor: pointer;}
+.main .banner .banner_left .banner-img .icon{position: absolute; bottom: 20px;left:45%; }
+.main .banner .banner_left .banner-img .icon a{width: 20px;height: 20px;border-radius: 50%;background: #fff; display: inline-block; }
+
+/* top_ad */
+.top_ad{width: 1190px;margin: 0 auto; position: relative;}
+.top_ad .close{position: absolute; right: 10px;top:1px; width: 20px;height: 20px;text-align: center;line-height: 20px;background: #fff;color:#000;cursor: pointer; }
+
+

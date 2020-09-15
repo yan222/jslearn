@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var object=new Object();
+        object.name="ll";
+        console.log(object.name)
+        console.log(object.age)  //若没有该属性名，返回undefined
+        delete object.name    //删除对象属性
+      //  delete object    no effect 
+        console.log(object)
+
+        // 对象属性名可以不遵循命名原则
+        object.var="sss"     
+        object["123"]="ddd"   //对象[属性名] 这种方式取属性值，可以用变量
+
+        //对象值可以是任意类型，也可以是对象
+
+        console.log("name" in object)   //检查object是否有name属性。
+
+        //使用对象字面量来创建一个对象 与new效果相同
+        var obj={
+            name:"liu",
+            age:"18",
+            gender:"male",
+        };
+        for (n in obj){     //相当于js里的迭代器，n代表属性名字
+            console.log(n);
+            console.log(obj[n])//迭代对应的值
+        }
+        
+    </script>
+</body>
+</html>

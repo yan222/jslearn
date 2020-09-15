@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img{
+            height: 500px;                    /*图片与div大小不一致时，将图片大小调整为div的大小*/
+            width: 500px;
+            border: black 1px solid;
+            text-align: center;
+            margin: auto;
+            /* background-image: url(image/ly.jpg) ;
+            background-repeat:no-repeat; background-size:100% 100%;  背景图片自适应 */
+
+        }
+        .d{
+            text-align: center;
+            margin-top: 48%;
+            display: block;
+        }
+        html{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="img" >
+        <span class="d">点我</span>
+        
+    </div>
+</body>
+<script>
+    var dd=document.querySelector(".img");
+    var j=document.getElementsByClassName("d")[0];
+    
+    console.log(dd);
+    dd.onclick = function(){
+        j.innerHTML="看我美吗！！";
+        j.style.cssText="text-align: center;margin-top: 48%;display: block; color:red; font-size=20px"
+        dd.style.cssText ="height:500px;width: 500px; border: black 1px solid;text-align: center;margin: auto;background-image: url(image/ly.jpg) ;background-repeat:no-repeat; background-size:100% 100%; "
+    }
+    dd.onmousemove =move;
+     function move(){
+        dd.style.width="300px";
+    }
+    dd.onmouseout =function(){
+        dd.style.width="500px";
+    }
+    document.onkeydown = function(){
+         console.log(11111);
+    }
+    window.onload=function(){          //页面加载完成后，执行
+        dd.innerHTML="<br>hhhhh";      //可以插入标签
+    }
+
+    window.onresize=function(){
+        console.log("sdf");
+    }
+    window.onscroll=function(){
+        console.log("我滚了");
+    }
+</script>
+</html>
