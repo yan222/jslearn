@@ -26,7 +26,7 @@
         //解析器不会解析参数类型与数量  多余的不会识别 
         //如果实参数量小于形参数量，则对应实参为undefined
         function exa(a,b,v,c,x){
-            console.log(arguments);    //返回参数集合
+            console.log(arguments);    //返回参数集合 arguements,有个callee方法返回当前函数体
         }
         exa(1,2,3,4,5);
 

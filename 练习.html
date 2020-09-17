@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        // Person.prototype.toString=function(){       
+        //     console.log("name="+this.name,"age="+this.age);   重写toString方法，但在Chrome中看不出区别
+        // }
+        var per1=new Person("liu",18);
+        console.log(per1);    //log使用了tostring方法，使对象字符串化
+        arr=[ per2=new Person("wang",20), per1,per3=new Person("zhang",29)];
+        console.log(arr);
+        
+        for(i=0;i<3;i++ ){
+            console.log(arr[i].name);
+        }
+    </script>
+</body>
+</html>

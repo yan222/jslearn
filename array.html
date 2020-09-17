@@ -15,7 +15,8 @@
          * 数组（Array）
          *   数组也是一个对象
          *   它和普通对象功能相似也是用来存储一些值
-         *    数组使用数字作为索引*/
+         *    数组使用数字作为索引
+         *    数组内的元素可以是任意数据类型*/
 
          var arr = new Array(1,2,3);   //new方式创建数组
          var arr1=new Array(10); //表示创建一个长度为10的数组
@@ -30,8 +31,34 @@
          console.log(arr.length)   //.length获取数组长度 实际只有四个元素，但返回6
          console.log(arr)  
          arr.length=10   //还可以设置数组长度
+         arr.length=3;
 
+         //数组的几种方法
+         arr.push(1,2,"aaa");
+          res=arr.push("bb");   //push向数组末尾添加元素，并返回数组长度
+         console.log(res);
+         console.log(arr);     //数组的输出最后执行？
 
+         res=arr.pop();
+         console.log(res,arr);  //pop删除末尾元素，并返回被删除元素
+
+         res=arr.unshift(0,-1,-2)
+         console.log(res,arr)   //unshift向数组开头添加元素，并返回长度
+
+         res=arr.shift()
+         console.log(res,arr)   //shift删除数组的第一个元素，并返回被删除元素
+
+        //foreach方法  需要一个函数作为参数
+        //我们创建但不由我们调用的函数，称为回调函数
+        //数组中有几个元素函数被执行几次，每次执行，浏览器会将
+        //遍历的数组元素以实参的形式传递进来，我们可以定义形参，来读取
+        //浏览器会在回调函数中传递三个参数：
+        //第一个参数：当前遍历的元素
+        // 第二个参数：该元素的索引 第三个参数：正在遍历的数组
+        // 只支持ie8以上
+        arr.forEach(function(a){
+            console.log("a="+a);
+        })
     </script>
 </body>
 </html>

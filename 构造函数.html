@@ -36,6 +36,8 @@
        function say2(){                  //但是在全局作用域定义函数会污染命名空间并且不安全
            console.log(this.age);
        }
+       Person.prototype.say3=function(){    //在构造函数的原型对象中添加这个方法
+       }
        var per1=new Person("liu",11,"male");
        var per2=new Person("dd",33,"fd");
        console.log(per1.say==per2.say)   //输出的是false

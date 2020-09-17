@@ -33,10 +33,10 @@
 
   // console.log(document.getElementsByTagName("div"))
    //document.getElementByTagName  标签名     选中后是一个集合
-   // document.getElementByName    名字
-   // document.getElementByClassName  类
+   // document.getElementByName    名字  选中后是一个集合
+   // document.getElementByClassName  类  选中后是一个集合
    // console.log(document.getElementById("dd"))
-
+   //firstElementChild获取当前元素的第一个子元素
    // alert(confirm("yes/no"));  //弹出选择框
 
    alert("您输入的名字"+prompt("请输入您的名字"))  //alert会将内容当作字符串弹出  prompt弹出提交文本框
@@ -46,5 +46,12 @@
    document.querySelector("div");   //选择器 但只能选择第一个
    document.querySelectorAll("div")   //选中所有  .mame 是类    #是id
 
+   //.childNodes 选中所有子节点包括文本节点在内 标签之间的空白（文本节点）也算入
+   //firstchild lastchild  第一个节点，最后一个节点
+   //.children 选中子元素
+
+   //parentNode 当前节点的父节点
+   //previousSibling nextSibiling 当前节点的前一个、后一个节点
+   //previousElementSilibing
 
 </script>
