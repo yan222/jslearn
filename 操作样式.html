@@ -14,15 +14,16 @@
     </div>
 </body>
 <script>
-     var dd=document.querySelectorAll("div");
+     var dd=document.querySelectorAll("div");  //全都兼容
      console.log(dd[0])
     //   dd[0].onmouseover(function(){
     //       var i =dd.index();
     //       console.log(i)
     //   })
-     dd[0].style.width="400px";   //set a cssstyle  remain original style
-    dd[1].style.height=500+"px";   //设置行内样式
+     dd[0].style.width="400px";   //set a cssstyle  remain original style 无法读取样式表样式
+    dd[1].style.height=500+"px";   //设置行内样式   当遇到减号时，用驼峰命名法代替 如background—color使用backgroundColor 若内嵌样式使用了！important则无法修改
     console.log(dd[0].style.height);  //获取行内样式  无法获取内嵌样式
+    //.currentStyle用于获取当前显示的样式，部分行内还是样式表 若不设置样式，则显示默认值，只有ie支持
      console.log(dd[0].getAttribute("style"));
      document.querySelector("#second").setAttribute("name","son");
      document.querySelector("#second").removeAttribute("name");
@@ -31,7 +32,7 @@
     
      var dd1=document.querySelector("#second");
      dd1.style.cssText="width:300px; height:300px; border: 1px solid black;float: left; "; //set totally new cssstyles 
-     console.log(getComputedStyle(dd1)["height"])    //get css   getComputedStyle 获取内嵌样式   也可以用于外部样式获取
+     console.log(getComputedStyle(dd1)["height"])    //get css   getComputedStyle 获取当前样式
 
      console.log(getComputedStyle(dd1,null).width)   //null是伪元素，可以不写
 </script>

@@ -34,7 +34,7 @@
   // console.log(document.getElementsByTagName("div"))
    //document.getElementByTagName  标签名     选中后是一个集合
    // document.getElementByName    名字  选中后是一个集合
-   // document.getElementByClassName  类  选中后是一个集合
+   // document.getElementByClassName  类  选中后是一个集合  ie8不支持
    // console.log(document.getElementById("dd"))
    //firstElementChild获取当前元素的第一个子元素
    // alert(confirm("yes/no"));  //弹出选择框
@@ -43,7 +43,7 @@
 
    //window.onload=function  这时候script如果在前面时，会先执行script。 加这句话之后就会先加载。
 
-   document.querySelector("div");   //选择器 但只能选择第一个
+   document.querySelector("div");   //选择器 但只能选择第一个   ie8支持
    document.querySelectorAll("div")   //选中所有  .mame 是类    #是id
 
    //.childNodes 选中所有子节点包括文本节点在内 标签之间的空白（文本节点）也算入

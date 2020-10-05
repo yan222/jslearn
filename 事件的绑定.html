@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="bt">dare you </button>
+    <script>
+        var bt=document.getElementById("bt");
+        /*
+        使用对象.事件=函数 的形式绑定响应函数，‘
+          它只能为一个元素绑定一个响应函数，如果绑定了多个
+          前面的则会被覆盖*/
+        // bt.onclick=function(){
+        //     alert(1);
+        // }
+        // bt.onclick=function(){
+        //     alert(2);
+        // }
+
+        /*
+         * addEventListener()
+         *   通过这个方法也可以为元素绑定响应函数
+         *   参数：
+         *     1.事件的字符串，不要on
+         * 2.回调函数，当事件触发时该函数会被调用
+         * 3.是否在捕获阶段触发事件，需要一个布尔值，一般为false
+         * 使用addEventListener（）可以同时为一个元素的相同事件绑定多个响应函数
+         * 触发时，按照绑定顺序执行
+         * 
+         * 不支持ie8及以下浏览器*/
+          
+        //  bt.addEventListener("click",function(){
+        //      alert(1)
+        // },false);
+         
+        // bt.addEventListener("click",function(){
+        //      alert(2)
+        // },false);
+         
+        /*
+        attachEvent()  chrome不适用
+          在ie8中可以使用attachEvent（）来绑定事件
+          参数
+            1.事件的字符串，有on
+            2.回调函数*/
+        // bt.attachEvent("onclick",function(){
+        //     alert(3);
+        // });
+        // bt.attachEvent("onclick",function(){
+        //     alert(4);
+        // });
+        
+        /*
+        为解决兼容问题  自己写个bind函数
+        参数：
+          1.obj 要绑定事件的对象
+          2.eventStr 事件的字符串（不用on）
+          3.callback 回调函数*/
+          function bind(obj,eventStr,callback){
+              if(obj.addEventListener){
+                  obj.addEventListener(eventStr,callback,false);
+              }
+              else{
+                  /*
+                  this是由调用方式决定
+                  callback.call(obj)*/
+                 obj.attachEvent("on"+eventStr,function(){
+                     //在匿名函数中调用回调函数，就不是window调用了
+                     callback.call(obj);
+                 })
+              }
+          }
+
+          bind(bt,"click",function(){
+              alert(1);
+          });
+    </script>
+</body>
+</html>

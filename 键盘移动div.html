@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dd{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="dd"></div>
+    <script>
+        var dd=document.getElementById("dd");
+        var dir=0;
+        var  speed=10;
+        document.onkeydown=function(event){  //为键盘事件绑定函数
+            event=event||window.event;
+            if(event.ctrlKey){  //按ctrl后加速
+                speed=100;
+            }else{
+                speed=10;
+            }
+            dir=event.keyCode;
+        }
+        /*定时器控制方向*/
+        setInterval(function(){
+            switch(dir){
+                /*
+                37左 38上 39右 40下*/
+                case 37:
+                    dd.style.left=dd.offsetLeft-speed+"px";
+                    break;
+                case 38:
+                    dd.style.top=dd.offsetTop-speed+"px";
+                    break;
+                case 39:
+                    dd.style.left=dd.offsetLeft+speed+"px";
+                    break;
+                case 40:
+                    dd.style.top=dd.offsetTop+speed+"px";
+                    break;
+            }
+        },100)
+        // document.onkeyup=function(){  可以设置松开键盘时停止
+        //     dir=0;
+        // }
+    </script>
+</body>
+</html>

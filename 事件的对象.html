@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<body>
+    <div id="fir" style="height: 200px; border: 1px rgb(128, 86, 86) solid; width: 100px;"></div>
+    <div id="sec" style="height: 200px; border: 1px black solid; width: 100px;"></div>
+    <script>
+        var fir=document.getElementById("fir");
+        var sec=document.getElementById("sec");
+        /*当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进相应函数，
+        在事件对象中封装了当前事件的一切信息，如鼠标的坐标，键盘的哪个按键被按下*/
+        fir.onmousemove=function(e){
+            /*
+            在ie8中，响应函数被触发时，浏览器不会传递事件对象，
+            是将事件作为window对象的属性保存的*/
+
+            e=e|| window.event;  //如果e存在则e就等于e，不存在则等于window.event,处理兼容问题
+            var x= window.event.clientX;  //window.event获取横坐标 不适用于火狐
+            var y= e.clientY;  // 传递事件对象，获取纵坐标  不适用于ie8及以下  相对于可见窗口的坐标
+            //pageX、pageY是相当于页面的
+            sec.innerHTML="x="+x+",y="+y;
+        }
+        
+    </script>
+</body>
+</html>

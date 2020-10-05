@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Location
+          该对象中封装了浏览器的地址栏信息
+          */
+        alert(location);  //可以获取地址栏信息，当前页面完整路径
+        //location="https://www.baidu.com"; 会跳转到百度  并且会生成相应的历史记录
+
+        /*
+        assign() 作用和直接修改location一样
+        location.assign("https://www.baidu.com");*/
+
+        /*
+        reload()
+          用于重新加载当前页面，作用和刷新按钮一样
+          如果在方法中传递一个true，则会强制清空缓存
+        location.reload(true);
+        */
+
+        /*
+        replace()
+          可以使用一个新的页面代替当前页面，调用完毕也会跳转页面
+            不会生成历史*/
+    </script>
+</body>
+</html>

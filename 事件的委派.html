@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">添加超链接</button>
+    <ul id="u1">
+        <li><a href="javascript:;"class="cc">yi</a></li>
+        <li><a href="javascript:;"class="cc">er</a></li>
+        <li><a href="javascript:;"class="cc">san</a></li>
+    </ul>
+    <script>
+        var btn=document.getElementById("btn");
+        var u1=document.getElementById("u1");
+        btn.onclick=function(){
+             var li=document.createElement("li")
+             li.innerHTML="<a href='javascript:;' class='cc'> three </a>"; 
+            u1.appendChild(li);
+        }
+        var allA=document.getElementsByTagName("a")
+        //每个a标签都被绑定事件
+        // for(var i=0;i<allA.length;i++){
+        //     allA[i].onclick=function(){
+        //         alert("aaa");
+        //     }
+        // }
+
+        /*
+        事件的委派
+          指将事件统一绑定给元素的共同祖先元素，这样当后代元素上的事件触发时，会一直冒泡到祖先元素
+          从而通过祖先元素的响应函数来处理事件。
+        事件的委派就是利用了冒泡，通过委派可以减少事件的绑定次数，提高程序性能*/
+
+        //为祖先元素ul绑定一个单机响应函数
+        u1.onclick=function(event){
+            event=event||window.event;
+            if(event.target.className=="cc"){
+                alert("ul onclick");
+            }
+            
+        }
+    </script>
+</body>
+</html>

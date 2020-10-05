@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #a{
+            height: 100px;
+            width: 100px;
+            border: 1px black solid;
+            background-color: chartreuse;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="a"></div>
+    <script>
+        var a=document.getElementById("a");
+        a.onmousedown = function(event){
+            //鼠标坐标减去div元素离浏览器边缘的距离，获取在鼠标在div元素的位置
+            var ol=event.clientX-a.offsetLeft;
+            var ot=event.clientY-a.offsetTop;
+            
+            document.onmousemove=function(event){
+               // event=event||window.event;
+                //获取当前鼠标坐标
+                console.log(1);
+                var left=event.clientX-ol;   //减去鼠标在div内的位置
+                var top=event.clientY-ot;
+                //修改div的坐标
+                a.style.left=left+"px";
+                a.style.top=top+"px";
+            }
+        //要为document绑定一个鼠标松开事件，而不是a，这样在被其他元素遮挡时，也会触发
+        document.onmouseup=function(){
+            console.log(1);
+            document.onmousemove=null;   //移除
+            document.onmouseup=null;   //移除mouseup事件
+        }
+        }
+    </script>
+</body>
+</html>
