@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b1{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            opacity: 0.5;
+        }
+        .b2{
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class ="b1"></div>
+    <button id="bt1">click me</button>
+    <script>
+        var b1=document.getElementsByClassName("b1")[0];
+        var bt1=document.getElementById("bt1");
+        bt1.onclick=function(){
+            /*
+            修改box样式
+            通过style属性来修改元素的样式，每修改一个样式，浏览器就要重新渲染一次页面
+            这样性能是比较差的，而且修改多个样式的时候，不方便
+            b1.style.width="200px";
+            b1.style.height="200px";
+            "*/
+            /*
+            修改box的class属性
+            我们可以通过修改元素的class属性来简介修改样式
+            这样我们只需要修改一次，即可同时修改多个样式
+              浏览器只需要重新渲染页面一次，性能较好，这种方式
+              可以使表现和行为进一步的分离*/
+              //b1.className+=" b2";  //同时有两个类的样式
+            
+              toggleClass(b1,"b2");
+             
+        }
+        /*添加类*/
+        function addClass(obj,cn){
+            if(!hasClass(obj,cn)){
+            obj.className+=" "+cn;
+            }
+        }
+        /*判断一个元素中是否含有指定的class属性值*/
+        function hasClass(obj,cn){
+                  var reg=new RegExp("\\b"+cn+"\\b"); //正则表达式
+                  return reg.test(obj.className);
+              }
+        /*删除class*/
+        function removeClass(obj,cn){
+            var reg=new RegExp("\\b"+cn+"\\b");
+            obj.className=obj.className.replace(reg)
+        }
+        /*toggleClass可以用来切换一个类
+          如果元素中具有该类，则删除
+          若没有，则添加*/
+        function toggleClass(obj,cn){
+            //有则删除，没有则添加
+            if(hasClass(obj,cn)){
+                removeClass(obj,cn);
+            }else{
+                addClass(obj,cn);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #b1 {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+            left: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="bt1">向右移动</button>
+    <button id="bt2">向左移动</button>
+    <br>
+    <div id="b1"></div>
+    <script>
+        var bt1 = document.getElementById("bt1");
+        var bt2 = document.getElementById("bt2");
+        var b1 = document.getElementById("b1");
+        var timer;  //定义一个变量来保存定时器
+        bt1.onclick = function () {
+            move(b1,800,10);
+        }
+        bt2.onclick = function () {
+            // clearInterval(timer);  //如果多次点击，会产生对个定时器，因此要清除上一个定时器
+            // timer = setInterval(function () {
+            //     b1.style.left = b1.offsetLeft - 10 + "px";
+
+            //     if (parseInt(b1.style.left) < 0) {   //有px作为单位，要用parseInt转为整数
+            //         b1.style.left = 0+"px";
+            //     }
+            //     if (parseInt(b1.style.left) == 0) {
+            //         clearInterval(timer);
+            //     }
+            // }, 30);    
+            move(b1,0,10);  
+        }
+
+        function move(obj,target,speed) {
+            if(target<parseInt(b1.style.left)){  //加上这个之后，速度只传正数即可
+                speed=-speed;         
+            }
+            clearInterval(timer);  //如果多次点击，会产生对个定时器，因此要清除上一个定时器   
+            timer = setInterval(function () {
+                obj.style.left = obj.offsetLeft + speed + "px";
+
+                if (parseInt(obj.style.left)  <target&&speed<0||parseInt(obj.style.left)>target&&speed>0) {   //有px作为单位，要用parseInt转为整数
+                    obj.style.left = target+"px";
+                }
+                if (parseInt(obj.style.left) == target) {
+                    clearInterval(timer);
+                }
+            }, 30);      
+        }
+    </script>
+</body>
+
+</html>
